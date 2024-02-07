@@ -1,0 +1,16 @@
+.BillBoard__frame {
+  position: relative;
+  width: 400px;
+  height: 300px;
+}
+
+.BillBoard__item {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: none;
+}
+
+.BillBoard__item.active {
+  display: block;
+}

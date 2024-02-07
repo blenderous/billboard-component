@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# BillBoard component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Running the dev server
 
-Currently, two official plugins are available:
+After cloning the repository, navigate to the directory which contains the project and run `npm install` and `run run dev`.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Using the BillBoard component
 
-## Expanding the ESLint configuration
+- Set the `interval` prop to the interval at which the slides should switch.
+- Place the elements which need to be shown in the slides, like `video`, `img` and `p`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Example:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```jsx
+<BillBoard interval={2000}>
+  <video
+    autoPlay={true}
+    muted={true}
+    loop={true}
+    width="400"
+  >
+    <source
+      src="/videos/BigBuckBunnySample2.mp4"
+      type="video/mp4"
+    />
+  </video>
+  <img
+    width="400"
+    src="/images/fabien-bellanger-zKFoVBS_WGE-unsplash.jpg"
+    alt="Sea view"
+  />
+  <p style={{ fontSize: "36px" }}>
+    Some random text that appears in a slide of the carousal
+  </p>
+</BillBoard>
 ```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list

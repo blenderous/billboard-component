@@ -1,22 +1,15 @@
 import { useEffect, useRef, useState } from "react"
 import "./App.css"
-import BillBoard from "./components/BillBoard/BillBoard"
+import BillBoard from "./components/BillBoard"
 
 function App() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true
-      videoRef.current.play()
-    }
-  }, [])
-
   return (
     <>
-      <BillBoard>
+      <BillBoard interval={2000}>
         <video
-          ref={videoRef}
+          autoPlay={true}
+          muted={true}
+          loop={true}
           width="400"
         >
           <source
@@ -29,7 +22,9 @@ function App() {
           src="/images/fabien-bellanger-zKFoVBS_WGE-unsplash.jpg"
           alt="Sea view"
         />
-        <p>Some random text that appears in a slide of the carousal</p>
+        <p style={{ fontSize: "36px" }}>
+          Some random text that appears in a slide of the carousal
+        </p>
       </BillBoard>
     </>
   )
